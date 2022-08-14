@@ -47,7 +47,7 @@ body{
     color: rgba(43, 41, 45, 0.6);
 }
 
-.header_link{
+.nav_link{
     position: relative;
     font-size: 18px;
     line-height: 25px;
@@ -55,7 +55,7 @@ body{
     text-decoration: none;
 }
 
-.header_link:hover::before{
+.nav_link:hover::before{
     content: '';
     position: absolute;
     width: 100%;
@@ -64,19 +64,34 @@ body{
     bottom: 0;
 }
 
-.header_link:hover{
+.nav_link:hover{
     font-weight: bold;
 }
 
-.header_ul{
+.nav_li{
     margin-right: 77px;
 }
 
-.header_li:first-of-type{
+.nav_li:first-of-type{
     margin-right: 30px;
 }
 
+.check{
+    width: 18px;
+    height: 2px;
+    background-color:rgba(44, 50, 65, 1);
+}
+
+.check:not(:last-of-type){
+    margin-bottom: 4px;
+}
+
+.nav_checkbox, .check-wrapper{
+    display: none;
+}
+
 .button{
+    
     width: 160px;
     height: 48px;
     border: none;
@@ -96,9 +111,66 @@ body{
     transform: scale(1.1);
 }
 
+.main-img > img{
+        max-width: 100%;
+}
+
+.main{
+    background-color:  rgba(243, 198, 189, 1);
+    position: relative;
+    padding-bottom: 126px;
+}
+
+.main_container > div:first-of-type{
+    z-index: 1;
+}
+
+.main_container > div:last-of-type{
+    z-index: 0;
+    position: absolute;
+    right: 25px;
+}
+
+
+.main_title{
+    max-width: 754px;
+    font-weight: bold;
+    font-size: 80px;
+    line-height: 78px;
+    letter-spacing: -0.5px;
+    color: #2B292D;
+    margin-bottom: 34px;
+}
+
+.main_text{
+    font-size: 24px;
+    line-height: 34px;
+    color: #2B292D;
+    max-width: 456px;
+    margin-bottom: 58px;
+}
+
+.button_main{
+    margin-right: 10px;
+}
+
+.button_main-white{
+    background-color: #fff;
+    color:rgba(48, 64, 196, 1);
+    margin-right: 0;
+    
+}
+
+.button_main-white:hover{
+    background-color: #fff;
+    border: 1px solid rgba(48, 64, 196, 1);
+    transition: 1s;
+}
+
 .about{
     padding: 77px 0 76px;
     background-color:#F4F5F7;
+    margin-bottom: 30px;
 }
 
 .about_block{
@@ -125,9 +197,6 @@ body{
     color: #2B292D;
 }
 
-.companies{
-    margin-bottom: 106px;
-}
 
 .companies img{
     max-width: 100%;
@@ -444,6 +513,8 @@ body{
 }
 
 
+
+
 @keyframes toLeft{
     from{
         left: -300px;
@@ -478,6 +549,19 @@ body{
         max-width: 1040px;
     }
 
+    .main_title{
+        max-width: 525px;
+        font-size: 60px;
+        line-height: 72px;
+        letter-spacing: -0.5px;
+    }
+
+    .main_text{
+        max-width: 355px;
+        font-size: 22px;
+    }
+
+
     .header_ul{
         margin-right: 50px;
     }
@@ -506,9 +590,110 @@ body{
         height: 48px;
     }
 
-    .header_nav{
+    .nav_all{
         display: none;
     }
+
+    .nav_checkbox, .check-wrapper{
+        display: block;
+    }
+
+    .nav{
+        position: relative;
+    }
+
+    .nav_checkbox{
+        position: absolute;
+        margin: 0;
+        width: 18px;
+        height: 18px;
+        z-index: 4;
+        opacity: 0;
+    }
+
+    .nav_checkbox:checked ~ .check-wrapper > .check:first-of-type{
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .nav_checkbox:checked ~ .check-wrapper > .check:nth-child(2){
+        opacity: 0;
+    }
+
+    .check{
+        transition: 300ms;
+    }
+
+    .nav_checkbox:checked ~ .check-wrapper > .check:last-of-type{
+        transform: rotate(-45deg) translate(3px, -2px);    
+    }
+
+    .nav_checkbox:checked ~ .nav_all{
+        position: fixed;
+        display: block;
+        background: rgba(243, 198, 189, 1);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        z-index: 2;
+    }
+
+   .nav_ul{
+    justify-content:flex-end;
+    margin-right: 200px;
+    padding-top: 30px;
+   }
+   
+   .check-wrapper{
+    position:relative;
+    z-index: 3;
+   }
+
+    .nav_li{
+        margin-bottom: 10px;
+    }
+
+    .main_container{
+        flex-direction: column;
+       align-items: flex-start;
+    }
+
+    
+    .main_container > div:last-of-type{
+        position: relative;
+        right: 0;
+        margin: 0 auto;
+    }
+
+    .main_container > div:first-of-type{
+        margin-left: 0;
+    }
+
+    .main_title{
+        margin-bottom: 15px;
+    }
+
+    .main_text{
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 30px;
+    }
+
+    .button_main{
+        max-width: 125px;
+        font-size: 16px;
+        margin-right: 8px;
+    }
+
+    .button_main-white{
+        margin-right: 0;
+    }
+
+    .main-img{
+        max-width: 620px;
+    }
+
 
     .about{
         padding: 30px 0 34px;
@@ -725,6 +910,14 @@ body{
         padding: 25px 0;
     }
 
+    .main{
+        padding-bottom: 60px;
+    }
+
+    .main-img{
+        max-width: 500px;
+    }
+
     .companies{
         padding: 25px 0 25px;
     }
@@ -790,6 +983,30 @@ body{
         margin-right: 7px;
     }
 
+    
+   .nav_ul{
+    flex-direction: column;
+    justify-content:center;
+    margin: 0 auto;
+    padding-top: 30px;
+   }
+
+   .nav_li:first-of-type{
+    margin-right: 0;
+   }
+
+   .nav_li{
+    margin-right: 0;
+   }
+    .main-img{
+        max-width: 430px;
+    }
+
+    .main_title{
+        font-size: 55px;
+        line-height: 60px;
+    }
+
     .inbox{
         padding: 0 30px;
         margin: 30px;
@@ -845,9 +1062,20 @@ body{
     .container{
         max-width: 310px;
     }
+
+    .main-img{
+        max-width: 310px;
+    }
+
+    .main_title{
+        font-size: 50px;
+        line-height: 50px;
+    }
+
     .container_image-inbox{
         width: 100%;
     }
+
 
     .about_block{
         width: 290px;
@@ -958,9 +1186,23 @@ body{
 
 @media screen and (max-width:360px){
     .container{
-        max-width: 300px;
+        max-width: 310px;
     }
 
+    .main{
+        padding: 35px 0 36px;
+    }
+
+    .main_title{
+        margin-bottom: 24px;
+    }
+
+    .main_text{
+        font-size: 24px;
+        line-height: 34px;
+        margin-bottom: 30px;
+    }
+   
     .flex-image>img{
         max-width: 290px;
     }
@@ -1002,6 +1244,30 @@ body{
 
     .logo img{
         margin-right: 13px;
+    }
+
+    .button{
+        margin-bottom: 0;
+    }
+
+    .button_main{
+        max-width: 290px;
+    }
+
+    .button_main{
+        width: 290px;
+    }
+
+    .button_main:first-of-type{
+        margin:0 auto 15px;
+    }
+
+    .button_main-white{
+        margin-bottom: 33px;
+    }
+
+    .main-img{
+        max-width: 290px;
     }
 
     .about_block{
@@ -1124,10 +1390,7 @@ body{
         margin-bottom: 30px;
     }
 
-    .button{
-        width: 290px;
-        margin: 0 auto 40px;
-    }
+  
 
     .button-understand{
         margin-bottom: 12px;
